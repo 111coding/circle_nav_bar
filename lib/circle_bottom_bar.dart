@@ -37,7 +37,7 @@ class CircleBottomBar extends StatefulWidget {
   /// );
   /// ```
   ///
-  /// ![](https://raw.githubusercontent.com/111coding/circle_bottom_bar/master/doc/value-512.png)
+  /// ![](https://raw.githubusercontent.com/111coding/circle_bottom_bar/master/doc/value-05.png)
   const CircleBottomBar({
     Key? key,
     required this.initIndex,
@@ -63,19 +63,19 @@ class CircleBottomBar extends StatefulWidget {
 
   /// Bottom bar height (without bottom padding)
   ///
-  /// ![](https://raw.githubusercontent.com/111coding/circle_bottom_bar/master/doc/value-075.png)
+  /// ![](https://raw.githubusercontent.com/111coding/circle_bottom_bar/master/doc/value-05.png)
   final double height;
 
   /// Circle icon diameter
   ///
-  /// ![](https://raw.githubusercontent.com/111coding/circle_bottom_bar/master/doc/value-075.png)
+  /// ![](https://raw.githubusercontent.com/111coding/circle_bottom_bar/master/doc/value-05.png)
   final double circleWidth;
 
   /// Bottom bar Color
   ///
   /// If you set gradient, color will be ignored
   ///
-  /// ![](https://raw.githubusercontent.com/111coding/circle_bottom_bar/master/doc/value-075.png)
+  /// ![](https://raw.githubusercontent.com/111coding/circle_bottom_bar/master/doc/value-05.png)
   final Color color;
 
   /// Bottom bar activeIcon List
@@ -96,19 +96,19 @@ class CircleBottomBar extends StatefulWidget {
   ///
   /// It is the distance from the Scaffold
   ///
-  /// ![](https://raw.githubusercontent.com/111coding/circle_bottom_bar/master/doc/value-075.png)
+  /// ![](https://raw.githubusercontent.com/111coding/circle_bottom_bar/master/doc/value-05.png)
   final EdgeInsets padding;
 
   /// cornerRadius
   ///
   /// You can specify different values ​​for each corner
   ///
-  /// ![](https://raw.githubusercontent.com/111coding/circle_bottom_bar/master/doc/value-075.png)
+  /// ![](https://raw.githubusercontent.com/111coding/circle_bottom_bar/master/doc/value-05.png)
   final BorderRadius cornerRadius;
 
   /// shadowColor
   ///
-  /// ![](https://raw.githubusercontent.com/111coding/circle_bottom_bar/master/doc/value-075.png)
+  /// ![](https://raw.githubusercontent.com/111coding/circle_bottom_bar/master/doc/value-05.png)
   final Color shadowColor;
 
   /// elevation
@@ -118,7 +118,7 @@ class CircleBottomBar extends StatefulWidget {
   ///
   /// If you set gradient, color will be ignored
   ///
-  /// ![](https://raw.githubusercontent.com/111coding/circle_bottom_bar/master/doc/value-075.png)
+  /// ![](https://raw.githubusercontent.com/111coding/circle_bottom_bar/master/doc/value-05.png)
   final Gradient? gradient;
 
   /// initial index value
