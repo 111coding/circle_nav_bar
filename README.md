@@ -1,39 +1,55 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
+# Circle Bottom Bar
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
+![](doc/animation.gif)
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+## Example style:
 
-## Features
+|            **no padding black**             |            **padding with gradient**             | 
+| :------------------------------: | :------------------------------: | 
+|    ![](doc/nopadding-black.png)     |    ![](doc/padding-gradient2.png)     | ![](doc/appbar-badge.gif) |
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
 
-## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
-
-```dart
-const like = 'sample';
+## How to use
+```yaml
+dependencies:
+  circle_bottom_bar: ^latest_version
 ```
 
-## Additional information
+```dart
+import 'package:circle_bottom_bar/circle_bottom_bar.dart';
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+Scaffold(
+      bottomNavigationBar: CircleBottomBar(
+        activeIcons: const [
+          Icon(Icons.person, color: Colors.deepPurple),
+          Icon(Icons.home, color: Colors.deepPurple),
+          Icon(Icons.favorite, color: Colors.deepPurple),
+        ],
+        inactiveIcons: const [
+          Text("My"),
+          Text("Home"),
+          Text("Like"),
+        ],
+        color: Colors.white,
+        height: 60,
+        circleWidth: 60,
+        initIndex: 1,
+        onChanged: (v) {
+          // TODO
+        },
+        // tabCurve: ,
+        padding: const EdgeInsets.only(left: 16, right: 16, bottom: 20),
+        cornerRadius: const BorderRadius.only(
+          topLeft: Radius.circular(8),
+          topRight: Radius.circular(8),
+          bottomRight: Radius.circular(24),
+          bottomLeft: Radius.circular(24),
+        ),
+        shadowColor: Colors.deepPurple,
+        elevation: 10,
+      ),
+```
+
+![](doc/value.png)
