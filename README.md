@@ -7,7 +7,7 @@
 
 |            **no padding black**             |            **padding with gradient**             | 
 | :------------------------------: | :------------------------------: | 
-|    ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/nopadding-black.png)     |    ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/padding-gradient2.png)     | ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/appbar-badge.gif) |
+|    ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/nopadding-black.png)     |    ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/padding-gradient2.png)     | 
 
 
 
