@@ -23,6 +23,7 @@ class Tet extends StatelessWidget {
         onChanged: (v) {
           // TODO
         },
+        // tabCurve: ,
         padding: const EdgeInsets.only(left: 16, right: 16, bottom: 20),
         cornerRadius: const BorderRadius.only(
           topLeft: Radius.circular(8),

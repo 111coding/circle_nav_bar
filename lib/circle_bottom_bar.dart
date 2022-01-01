@@ -37,7 +37,7 @@ class CircleBottomBar extends StatefulWidget {
   /// );
   /// ```
   ///
-  /// ![](https://github.com/hacktons/convex_bottom_bar/raw/master/doc/appbar-theming.png)
+  /// ![](https://raw.githubusercontent.com/111coding/circle_bottom_bar/master/doc/value-512.png)
   const CircleBottomBar({
     Key? key,
     required this.initIndex,
@@ -111,9 +111,13 @@ class CircleBottomBar extends StatefulWidget {
   final int initIndex;
 
   /// When the circle icon moves left and right
+  ///
+  /// ![](https://raw.githubusercontent.com/111coding/circle_bottom_bar/master/doc/animation.gif)
   final Curve tabCurve;
 
   /// When the active icon moves up from the bottom
+  ///
+  /// /// ![](https://raw.githubusercontent.com/111coding/circle_bottom_bar/master/doc/animation.gif)
   final Curve iconCurve;
 
   /// When the circle icon moves left and right
