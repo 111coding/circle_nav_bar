@@ -3,7 +3,40 @@ library circle_bottom_bar;
 import 'package:flutter/material.dart';
 
 class CircleBottomBar extends StatefulWidget {
-  /// Make Awesome Bottom Bar
+  /// Construct a new appbar with internal style.
+  ///
+  /// ```dart
+  /// CircleBottomBar(
+  ///   activeIcons: const [
+  ///     Icon(Icons.person, color: Colors.deepPurple),
+  ///     Icon(Icons.home, color: Colors.deepPurple),
+  ///     Icon(Icons.favorite, color: Colors.deepPurple),
+  ///   ],
+  ///   inactiveIcons: const [
+  ///     Text("My"),
+  ///     Text("Home"),
+  ///     Text("Like"),
+  ///   ],
+  ///   color: Colors.white,
+  ///   height: 60,
+  ///   circleWidth: 60,
+  ///   initIndex: 1,
+  ///   onChanged: (v) {
+  ///     // TODO
+  ///   },
+  ///   padding: const EdgeInsets.only(left: 16, right: 16, bottom: 20),
+  ///   cornerRadius: const BorderRadius.only(
+  ///     topLeft: Radius.circular(8),
+  ///     topRight: Radius.circular(8),
+  ///     bottomRight: Radius.circular(24),
+  ///     bottomLeft: Radius.circular(24),
+  ///   ),
+  ///   shadowColor: Colors.deepPurple,
+  ///   elevation: 10,
+  ///   // gradient: LinearGradient(colors: [0xFF73d1d3, 0xFFBADCC3, 0xFFDBA380].map(Color.new).toList()),
+  /// );
+  /// ```
+  ///
   /// ![](https://github.com/hacktons/convex_bottom_bar/raw/master/doc/appbar-theming.png)
   const CircleBottomBar({
     Key? key,
@@ -24,7 +57,7 @@ class CircleBottomBar extends StatefulWidget {
     this.elevation = 0,
     this.gradient,
   })  : assert(circleWidth <= height, "circleWidth <= height"),
-        assert(activeIcons.length == inactiveIcons.length, "activeIcons.length and inactiveIcons.length must same!"),
+        assert(activeIcons.length == inactiveIcons.length, "activeIcons.length and inactiveIcons.length must be equal!"),
         assert(activeIcons.length > initIndex, "activeIcons.length > initIndex"),
         super(key: key);
 
