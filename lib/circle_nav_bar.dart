@@ -1,12 +1,12 @@
-library circle_bottom_bar;
+library circle_nav_bar;
 
 import 'package:flutter/material.dart';
 
-class CircleBottomBar extends StatefulWidget {
+class CircleNavBar extends StatefulWidget {
   /// Construct a new appbar with internal style.
   ///
   /// ```dart
-  /// CircleBottomBar(
+  /// CircleNavBar(
   ///   activeIcons: const [
   ///     Icon(Icons.person, color: Colors.deepPurple),
   ///     Icon(Icons.home, color: Colors.deepPurple),
@@ -37,8 +37,8 @@ class CircleBottomBar extends StatefulWidget {
   /// );
   /// ```
   ///
-  /// ![](https://raw.githubusercontent.com/111coding/circle_bottom_bar/master/doc/value-05.png)
-  const CircleBottomBar({
+  /// ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/value-05.png)
+  const CircleNavBar({
     Key? key,
     required this.initIndex,
     required this.onChanged,
@@ -63,19 +63,19 @@ class CircleBottomBar extends StatefulWidget {
 
   /// Bottom bar height (without bottom padding)
   ///
-  /// ![](https://raw.githubusercontent.com/111coding/circle_bottom_bar/master/doc/value-05.png)
+  /// ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/value-05.png)
   final double height;
 
   /// Circle icon diameter
   ///
-  /// ![](https://raw.githubusercontent.com/111coding/circle_bottom_bar/master/doc/value-05.png)
+  /// ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/value-05.png)
   final double circleWidth;
 
   /// Bottom bar Color
   ///
   /// If you set gradient, color will be ignored
   ///
-  /// ![](https://raw.githubusercontent.com/111coding/circle_bottom_bar/master/doc/value-05.png)
+  /// ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/value-05.png)
   final Color color;
 
   /// Bottom bar activeIcon List
@@ -96,19 +96,19 @@ class CircleBottomBar extends StatefulWidget {
   ///
   /// It is the distance from the Scaffold
   ///
-  /// ![](https://raw.githubusercontent.com/111coding/circle_bottom_bar/master/doc/value-05.png)
+  /// ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/value-05.png)
   final EdgeInsets padding;
 
   /// cornerRadius
   ///
   /// You can specify different values ​​for each corner
   ///
-  /// ![](https://raw.githubusercontent.com/111coding/circle_bottom_bar/master/doc/value-05.png)
+  /// ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/value-05.png)
   final BorderRadius cornerRadius;
 
   /// shadowColor
   ///
-  /// ![](https://raw.githubusercontent.com/111coding/circle_bottom_bar/master/doc/value-05.png)
+  /// ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/value-05.png)
   final Color shadowColor;
 
   /// elevation
@@ -118,7 +118,7 @@ class CircleBottomBar extends StatefulWidget {
   ///
   /// If you set gradient, color will be ignored
   ///
-  /// ![](https://raw.githubusercontent.com/111coding/circle_bottom_bar/master/doc/value-05.png)
+  /// ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/value-05.png)
   final Gradient? gradient;
 
   /// initial index value
@@ -126,12 +126,12 @@ class CircleBottomBar extends StatefulWidget {
 
   /// When the circle icon moves left and right
   ///
-  /// ![](https://raw.githubusercontent.com/111coding/circle_bottom_bar/master/doc/animation.gif)
+  /// ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/animation.gif)
   final Curve tabCurve;
 
   /// When the active icon moves up from the bottom
   ///
-  /// /// ![](https://raw.githubusercontent.com/111coding/circle_bottom_bar/master/doc/animation.gif)
+  /// /// ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/animation.gif)
   final Curve iconCurve;
 
   /// When the circle icon moves left and right
@@ -144,10 +144,10 @@ class CircleBottomBar extends StatefulWidget {
   final Function(int v) onChanged;
 
   @override
-  State<StatefulWidget> createState() => _CircleBottomBarState();
+  State<StatefulWidget> createState() => _CircleNavBarState();
 }
 
-class _CircleBottomBarState extends State<CircleBottomBar> with TickerProviderStateMixin {
+class _CircleNavBarState extends State<CircleNavBar> with TickerProviderStateMixin {
   late AnimationController tabAc = AnimationController(vsync: this, duration: Duration(milliseconds: widget.tabDurationMillSec))
     ..addListener(() => setState(() {}))
     ..value = getPosition(widget.initIndex);

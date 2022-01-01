@@ -14,14 +14,14 @@
 ## How to use
 ```yaml
 dependencies:
-  circle_bottom_bar: ^latest_version
+  circle_nav_bar: ^latest_version
 ```
 
 ```dart
-import 'package:circle_bottom_bar/circle_bottom_bar.dart';
+import 'package:circle_nav_bar/circle_nav_bar.dart';
 
 Scaffold(
-      bottomNavigationBar: CircleBottomBar(
+      bottomNavigationBar: CircleNavBar(
         activeIcons: const [
           Icon(Icons.person, color: Colors.deepPurple),
           Icon(Icons.home, color: Colors.deepPurple),
