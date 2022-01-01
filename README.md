@@ -5,10 +5,20 @@
 
 ## Example style:
 
-|            **no padding black**             |            **padding with gradient**             | 
-| :------------------------------: | :------------------------------: | 
-|    ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/nopadding-black.png)     |    ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/padding-gradient2.png)     | 
-
+<table>
+    <thead>
+        <tr>
+            <th><strong>no padding black</strong></th>
+            <th><strong>padding with gradient</strong></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><img src="https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/nopadding-black.png" alt=""></td>
+            <td><img src="https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/padding-gradient2.png" alt=""></td>
+        </tr>
+    </tbody>
+</table>
 
 
 ## How to use
