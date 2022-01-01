@@ -3,6 +3,8 @@ library circle_bottom_bar;
 import 'package:flutter/material.dart';
 
 class CircleBottomBar extends StatefulWidget {
+  /// Make Awesome Bottom Bar
+  /// ![](https://github.com/hacktons/convex_bottom_bar/raw/master/doc/appbar-theming.png)
   const CircleBottomBar({
     Key? key,
     required this.initIndex,
@@ -26,24 +28,70 @@ class CircleBottomBar extends StatefulWidget {
         assert(activeIcons.length > initIndex, "activeIcons.length > initIndex"),
         super(key: key);
 
+  /// Bottom bar height (without bottom padding)
   final double height;
+
+  /// Circle icon diameter
   final double circleWidth;
+
+  /// Bottom bar Color
+  ///
+  /// If you set gradient, color will be ignored
   final Color color;
+
+  /// Bottom bar activeIcon List
+  ///
+  /// The active icon must be smaller than the diameter of the circle
+  ///
+  /// activeIcons.length and inactiveIcons.length must be equal
   final List<Widget> activeIcons;
+
+  /// Bottom bar inactiveIcon List
+  ///
+  /// The active icon must be smaller than the bottom bar height
+  ///
+  /// activeIcons.length and inactiveIcons.length must be equal
   final List<Widget> inactiveIcons;
+
+  /// bottom bar padding
+  ///
+  /// It is the distance from the Scaffold
   final EdgeInsets padding;
+
+  /// cornerRadius
+  ///
+  /// You can specify different values ​​for each corner
   final BorderRadius cornerRadius;
+
+  /// shadowColor
   final Color shadowColor;
+
+  /// elevation
   final double elevation;
+
+  /// gradient
+  ///
+  /// If you set gradient, color will be ignored
   final Gradient? gradient;
 
+  /// initial index value
   final int initIndex;
+
+  /// When the circle icon moves left and right
   final Curve tabCurve;
+
+  /// When the active icon moves up from the bottom
   final Curve iconCurve;
+
+  /// When the circle icon moves left and right
   final int tabDurationMillSec;
+
+  /// When the active icon moves up from the bottom
   final int iconDurationMillSec;
 
+  /// If you tap other index, this function will bo called
   final Function(int v) onChanged;
+
   @override
   State<StatefulWidget> createState() => _CircleBottomBarState();
 }
