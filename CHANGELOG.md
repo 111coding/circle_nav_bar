@@ -1,3 +1,7 @@
+## 1.0.2
+
+* Publish the packages to pub.dev + SDK version edit
+
 ## 1.0.1+2
 
 * Publish the packages to pub.dev + README Edit

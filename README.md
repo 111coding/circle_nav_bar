@@ -1,5 +1,5 @@
 
-# Circle Bottom Bar
+# Circle Nav Bar
 
 ![](doc/animation.gif)
 
