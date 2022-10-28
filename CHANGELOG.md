@@ -1,3 +1,6 @@
+## 2.0.0
+Change tabs programmatically
+
 ## 1.0.2
 
 * Publish the packages to pub.dev + SDK version edit
