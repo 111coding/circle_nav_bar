@@ -30,12 +30,25 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMixin {
-  int tabIndex = 1;
-  late TabController tabController = TabController(length: 3, vsync: this, initialIndex: tabIndex);
+  int _tabIndex = 1;
+  int get tabIndex => _tabIndex;
+  set tabIndex(int v) {
+    _tabIndex = v;
+    setState(() {});
+  }
+
+  late PageController pageController;
+
+  @override
+  void initState() {
+    super.initState();
+    pageController = PageController(initialPage: _tabIndex);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       bottomNavigationBar: CircleNavBar(
         activeIcons: const [
           Icon(Icons.person, color: Colors.deepPurple),
@@ -50,13 +63,11 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
         color: Colors.white,
         height: 60,
         circleWidth: 60,
-        initIndex: tabIndex,
-        onChanged: (v) {
+        activeIndex: tabIndex,
+        onTab: (v) {
           tabIndex = v;
-          tabController.animateTo(v);
-          setState(() {});
+          pageController.jumpToPage(tabIndex);
         },
-        // tabCurve: ,
         padding: const EdgeInsets.only(left: 16, right: 16, bottom: 20),
         cornerRadius: const BorderRadius.only(
           topLeft: Radius.circular(8),
@@ -67,9 +78,11 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
         shadowColor: Colors.deepPurple,
         elevation: 10,
       ),
-      body: TabBarView(
-        physics: const NeverScrollableScrollPhysics(),
-        controller: tabController,
+      body: PageView(
+        controller: pageController,
+        onPageChanged: (v) {
+          tabIndex = v;
+        },
         children: [
           Container(width: double.infinity, height: double.infinity, color: Colors.red),
           Container(width: double.infinity, height: double.infinity, color: Colors.green),
