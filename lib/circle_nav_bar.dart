@@ -20,8 +20,8 @@ class CircleNavBar extends StatefulWidget {
   ///   color: Colors.white,
   ///   height: 60,
   ///   circleWidth: 60,
-  ///   initIndex: 1,
-  ///   onChanged: (v) {
+  ///   activeIndex: 1,
+  ///   onTab: (v) {
   ///     // TODO
   ///   },
   ///   padding: const EdgeInsets.only(left: 16, right: 16, bottom: 20),
@@ -40,8 +40,8 @@ class CircleNavBar extends StatefulWidget {
   /// ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/value-05.png)
   const CircleNavBar({
     Key? key,
-    required this.initIndex,
-    required this.onChanged,
+    required this.activeIndex,
+    this.onTab,
     this.tabCurve = Curves.linearToEaseOut,
     this.iconCurve = Curves.bounceOut,
     this.tabDurationMillSec = 1000,
@@ -58,7 +58,7 @@ class CircleNavBar extends StatefulWidget {
     this.gradient,
   })  : assert(circleWidth <= height, "circleWidth <= height"),
         assert(activeIcons.length == inactiveIcons.length, "activeIcons.length and inactiveIcons.length must be equal!"),
-        assert(activeIcons.length > initIndex, "activeIcons.length > initIndex"),
+        assert(activeIcons.length > activeIndex, "activeIcons.length > activeIndex"),
         super(key: key);
 
   /// Bottom bar height (without bottom padding)
@@ -121,8 +121,8 @@ class CircleNavBar extends StatefulWidget {
   /// ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/value-05.png)
   final Gradient? gradient;
 
-  /// initial index value
-  final int initIndex;
+  /// active index
+  final int activeIndex;
 
   /// When the circle icon moves left and right
   ///
@@ -140,33 +140,42 @@ class CircleNavBar extends StatefulWidget {
   /// When the active icon moves up from the bottom
   final int iconDurationMillSec;
 
-  /// If you tap other index, this function will bo called
-  final Function(int v) onChanged;
+  /// If you tap bottom navigation menu, this function will bo called
+  /// You have you udpate widget state
+  final Function(int v)? onTab;
 
   @override
   State<StatefulWidget> createState() => _CircleNavBarState();
 }
 
 class _CircleNavBarState extends State<CircleNavBar> with TickerProviderStateMixin {
-  late AnimationController tabAc = AnimationController(vsync: this, duration: Duration(milliseconds: widget.tabDurationMillSec))
-    ..addListener(() => setState(() {}))
-    ..value = getPosition(widget.initIndex);
+  late AnimationController tabAc;
 
-  late AnimationController activeIconAc = AnimationController(vsync: this, duration: Duration(milliseconds: widget.iconDurationMillSec))
-    ..addListener(() => setState(() {}))
-    ..value = 1;
+  late AnimationController activeIconAc;
 
-  late int _index = widget.initIndex;
-  int get index => _index;
-  set index(int v) {
-    _index = v;
+  @override
+  void initState() {
+    super.initState();
+    tabAc = AnimationController(vsync: this, duration: Duration(milliseconds: widget.tabDurationMillSec))
+      ..addListener(() => setState(() {}))
+      ..value = getPosition(widget.activeIndex);
+    activeIconAc = AnimationController(vsync: this, duration: Duration(milliseconds: widget.iconDurationMillSec))
+      ..addListener(() => setState(() {}))
+      ..value = 1;
+  }
+
+  @override
+  void didUpdateWidget(covariant CircleNavBar oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    _animation();
+  }
+
+  void _animation() {
+    final nextPosition = getPosition(widget.activeIndex);
     tabAc.stop();
-    tabAc.animateTo(getPosition(v), curve: widget.tabCurve);
+    tabAc.animateTo(nextPosition, curve: widget.tabCurve);
     activeIconAc.reset();
     activeIconAc.animateTo(1, curve: widget.iconCurve);
-
-    widget.onChanged(v);
-    setState(() {});
   }
 
   double getPosition(int i) {
@@ -177,6 +186,7 @@ class _CircleNavBarState extends State<CircleNavBar> with TickerProviderStateMix
   @override
   Widget build(BuildContext context) {
     double deviceWidth = MediaQuery.of(context).size.width;
+
     return Container(
       margin: widget.padding,
       width: double.infinity,
@@ -194,13 +204,13 @@ class _CircleNavBarState extends State<CircleNavBar> with TickerProviderStateMix
                       int currentIndex = widget.inactiveIcons.indexOf(e);
                       return Expanded(
                           child: GestureDetector(
-                        onTap: () => index = currentIndex,
+                        onTap: () => widget.onTab?.call(currentIndex),
                         child: Container(
                           width: double.infinity,
                           height: double.infinity,
                           color: Colors.transparent,
                           alignment: Alignment.center,
-                          child: index == currentIndex ? null : e,
+                          child: widget.activeIndex == currentIndex ? null : e,
                         ),
                       ));
                     }).toList(),
@@ -214,7 +224,7 @@ class _CircleNavBarState extends State<CircleNavBar> with TickerProviderStateMix
                           height: widget.circleWidth,
                           transform: Matrix4.translationValues(0, -(widget.circleWidth * 0.5) + _CircleBottomPainter.getMiniRadius(widget.circleWidth) - widget.circleWidth * 0.5 * (1 - activeIconAc.value), 0),
                           // color: Colors.amber,
-                          child: widget.activeIcons[index],
+                          child: widget.activeIcons[widget.activeIndex],
                         ),
                       )),
                 ],
