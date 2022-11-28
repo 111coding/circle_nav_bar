@@ -18,10 +18,11 @@ class CircleNavBar extends StatefulWidget {
   ///     Text("Like"),
   ///   ],
   ///   color: Colors.white,
+  ///   // circleColor: Colors.white,
   ///   height: 60,
   ///   circleWidth: 60,
   ///   activeIndex: 1,
-  ///   onTab: (v) {
+  ///   onTap: (index) {
   ///     // TODO
   ///   },
   ///   padding: const EdgeInsets.only(left: 16, right: 16, bottom: 20),
@@ -32,16 +33,18 @@ class CircleNavBar extends StatefulWidget {
   ///     bottomLeft: Radius.circular(24),
   ///   ),
   ///   shadowColor: Colors.deepPurple,
+  ///   // circleShadowColor: Colors.deepPurple,
   ///   elevation: 10,
   ///   // gradient: LinearGradient(colors: [0xFF73d1d3, 0xFFBADCC3, 0xFFDBA380].map(Color.new).toList()),
+  ///   // circleGradient: LinearGradient(colors: [0xFF73d1d3, 0xFFBADCC3, 0xFFDBA380].map(Color.new).toList()),
   /// );
   /// ```
   ///
-  /// ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/value-05.png)
+  /// ![](doc/value-05.png)
   const CircleNavBar({
     Key? key,
     required this.activeIndex,
-    this.onTab,
+    this.onTap,
     this.tabCurve = Curves.linearToEaseOut,
     this.iconCurve = Curves.bounceOut,
     this.tabDurationMillSec = 1000,
@@ -51,11 +54,14 @@ class CircleNavBar extends StatefulWidget {
     required this.height,
     required this.circleWidth,
     required this.color,
+    this.circleColor,
     this.padding = EdgeInsets.zero,
     this.cornerRadius = BorderRadius.zero,
     this.shadowColor = Colors.white,
+    this.circleShadowColor,
     this.elevation = 0,
     this.gradient,
+    this.circleGradient,
   })  : assert(circleWidth <= height, "circleWidth <= height"),
         assert(activeIcons.length == inactiveIcons.length, "activeIcons.length and inactiveIcons.length must be equal!"),
         assert(activeIcons.length > activeIndex, "activeIcons.length > activeIndex"),
@@ -63,20 +69,28 @@ class CircleNavBar extends StatefulWidget {
 
   /// Bottom bar height (without bottom padding)
   ///
-  /// ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/value-05.png)
+  /// ![](doc/value-05.png)
   final double height;
 
   /// Circle icon diameter
   ///
-  /// ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/value-05.png)
+  /// ![](doc/value-05.png)
   final double circleWidth;
 
   /// Bottom bar Color
   ///
   /// If you set gradient, color will be ignored
   ///
-  /// ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/value-05.png)
+  /// ![](doc/value-05.png)
   final Color color;
+
+  /// Circle color (for active index)
+  ///
+  /// If [circleGradient] is given, [circleColor] & [color] will be ignored
+  /// If null, [color] will be used
+  ///
+  /// ![](doc/value-05.png)
+  final Color? circleColor;
 
   /// Bottom bar activeIcon List
   ///
@@ -96,42 +110,56 @@ class CircleNavBar extends StatefulWidget {
   ///
   /// It is the distance from the Scaffold
   ///
-  /// ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/value-05.png)
+  /// ![](doc/value-05.png)
   final EdgeInsets padding;
 
   /// cornerRadius
   ///
   /// You can specify different values ​​for each corner
   ///
-  /// ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/value-05.png)
+  /// ![](doc/value-05.png)
   final BorderRadius cornerRadius;
 
   /// shadowColor
   ///
-  /// ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/value-05.png)
+  /// ![](doc/value-05.png)
   final Color shadowColor;
+
+  /// Circle shadow color (for active index)
+  ///
+  /// If null, [shadowColor] will be used
+  ///
+  /// ![](doc/value-05.png)
+  final Color? circleShadowColor;
 
   /// elevation
   final double elevation;
 
   /// gradient
   ///
-  /// If you set gradient, color will be ignored
+  /// If you set gradient, [color] will be ignored
   ///
-  /// ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/value-05.png)
+  /// ![](doc/value-05.png)
   final Gradient? gradient;
+
+  /// Circle gradient (for active index)
+  ///
+  /// If null, [gradient] might be used
+  ///
+  /// ![](doc/value-05.png)
+  final Gradient? circleGradient;
 
   /// active index
   final int activeIndex;
 
   /// When the circle icon moves left and right
   ///
-  /// ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/animation.gif)
+  /// ![](doc/animation.gif)
   final Curve tabCurve;
 
   /// When the active icon moves up from the bottom
   ///
-  /// /// ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/animation.gif)
+  /// /// ![](doc/animation.gif)
   final Curve iconCurve;
 
   /// When the circle icon moves left and right
@@ -140,9 +168,9 @@ class CircleNavBar extends StatefulWidget {
   /// When the active icon moves up from the bottom
   final int iconDurationMillSec;
 
-  /// If you tap bottom navigation menu, this function will bo called
-  /// You have you udpate widget state
-  final Function(int v)? onTab;
+  /// If you tap bottom navigation menu, this function will be called
+  /// You have to update widget state by setting new [activeIndex]
+  final Function(int index)? onTap;
 
   @override
   State<StatefulWidget> createState() => _CircleNavBarState();
@@ -194,6 +222,18 @@ class _CircleNavBarState extends State<CircleNavBar> with TickerProviderStateMix
       child: Column(
         children: [
           CustomPaint(
+            painter: _CircleBottomPainter(
+              iconWidth: widget.circleWidth,
+              color: widget.color,
+              circleColor: widget.circleColor ?? widget.color,
+              xOffsetPercent: tabAc.value,
+              boxRadius: widget.cornerRadius,
+              shadowColor: widget.shadowColor,
+              circleShadowColor: widget.circleShadowColor ?? widget.shadowColor,
+              elevation: widget.elevation,
+              gradient: widget.gradient,
+              circleGradient: widget.circleGradient ?? widget.gradient,
+            ),
             child: SizedBox(
               height: widget.height,
               width: double.infinity,
@@ -204,7 +244,7 @@ class _CircleNavBarState extends State<CircleNavBar> with TickerProviderStateMix
                       int currentIndex = widget.inactiveIcons.indexOf(e);
                       return Expanded(
                           child: GestureDetector(
-                        onTap: () => widget.onTab?.call(currentIndex),
+                        onTap: () => widget.onTap?.call(currentIndex),
                         child: Container(
                           width: double.infinity,
                           height: double.infinity,
@@ -230,15 +270,6 @@ class _CircleNavBarState extends State<CircleNavBar> with TickerProviderStateMix
                 ],
               ),
             ),
-            painter: _CircleBottomPainter(
-              iconWidth: widget.circleWidth,
-              color: widget.color,
-              xOffsetPercent: tabAc.value,
-              boxRadius: widget.cornerRadius,
-              shadowColor: widget.shadowColor,
-              elevation: widget.elevation,
-              gradient: widget.gradient,
-            ),
           ),
         ],
       ),
@@ -250,20 +281,26 @@ class _CircleBottomPainter extends CustomPainter {
   _CircleBottomPainter({
     required this.iconWidth,
     required this.color,
+    required this.circleColor,
     required this.xOffsetPercent,
     required this.boxRadius,
     required this.shadowColor,
+    required this.circleShadowColor,
     required this.elevation,
     this.gradient,
+    this.circleGradient,
   });
 
   final Color color;
+  final Color circleColor;
   final double iconWidth;
   final double xOffsetPercent;
   final BorderRadius boxRadius;
   final Color shadowColor;
+  final Color circleShadowColor;
   final double elevation;
   final Gradient? gradient;
+  final Gradient? circleGradient;
 
   static double getR(double circleWidth) {
     return circleWidth / 2 * 1.2;
@@ -282,13 +319,19 @@ class _CircleBottomPainter extends CustomPainter {
     Path path = Path();
 
     Paint paint = Paint();
+    Paint? circlePaint;
+    if (color != circleColor || circleGradient != null) {
+      circlePaint = Paint();
+      circlePaint.color = circleColor;
+    }
+
     final w = size.width;
     final h = size.height;
     final r = getR(iconWidth);
     final miniRadius = getMiniRadius(iconWidth);
     final x = xOffsetPercent * w;
     final firstX = x - r;
-    final secontX = x + r;
+    final secondX = x + r;
 
     // TopLeft Radius
     path.moveTo(0, 0 + boxRadius.topLeft.y);
@@ -297,12 +340,12 @@ class _CircleBottomPainter extends CustomPainter {
     path.quadraticBezierTo(firstX, 0, firstX, miniRadius);
 
     path.arcToPoint(
-      Offset(secontX, miniRadius),
+      Offset(secondX, miniRadius),
       radius: Radius.circular(r),
       clockwise: false,
     );
 
-    path.quadraticBezierTo(secontX, 0, secontX + miniRadius, 0);
+    path.quadraticBezierTo(secondX, 0, secondX + miniRadius, 0);
 
     // TopRight Radius
     path.lineTo(w - boxRadius.topRight.x, 0);
@@ -325,6 +368,12 @@ class _CircleBottomPainter extends CustomPainter {
       paint.shader = gradient!.createShader(shaderRect);
     }
 
+    if (circleGradient != null) {
+      Rect shaderRect = Rect.fromCircle(center: Offset(x, miniRadius), radius: iconWidth / 2);
+      circlePaint?.shader = circleGradient!.createShader(shaderRect);
+    }
+
+    // TODO: when using this commented code, use circle-specific values as well
     // canvas.drawShadow(path, shadowColor, elevation, false);
     // Path oval = Path()..addOval(Rect.fromCircle(center: Offset(x, miniRadius), radius: iconWidth / 2));
 
@@ -339,12 +388,12 @@ class _CircleBottomPainter extends CustomPainter {
         Offset(x, miniRadius),
         iconWidth / 2,
         Paint()
-          ..color = shadowColor
+          ..color = circleShadowColor
           ..maskFilter = MaskFilter.blur(BlurStyle.normal, convertRadiusToSigma(elevation)));
 
     canvas.drawPath(path, paint);
 
-    canvas.drawCircle(Offset(x, miniRadius), iconWidth / 2, paint);
+    canvas.drawCircle(Offset(x, miniRadius), iconWidth / 2, circlePaint ?? paint);
   }
 
   @override
