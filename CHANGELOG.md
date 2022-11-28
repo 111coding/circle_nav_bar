@@ -1,3 +1,10 @@
+## 2.0.1
+add configuration params: circleColor, circleShadowColor, circleGradient
+Updates CustomPaint child's sort order
+updates documentation image links to be relative
+Spelling fix
+Thanks for @rupinderjeet
+
 ## 2.0.0
 Change tabs programmatically
 
