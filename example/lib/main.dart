@@ -64,8 +64,8 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
         height: 60,
         circleWidth: 60,
         activeIndex: tabIndex,
-        onTab: (v) {
-          tabIndex = v;
+        onTap: (index) {
+          tabIndex = index;
           pageController.jumpToPage(tabIndex);
         },
         padding: const EdgeInsets.only(left: 16, right: 16, bottom: 20),

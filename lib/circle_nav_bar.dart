@@ -22,7 +22,7 @@ class CircleNavBar extends StatefulWidget {
   ///   height: 60,
   ///   circleWidth: 60,
   ///   activeIndex: 1,
-  ///   onTab: (v) {
+  ///   onTap: (index) {
   ///     // TODO
   ///   },
   ///   padding: const EdgeInsets.only(left: 16, right: 16, bottom: 20),
@@ -44,7 +44,7 @@ class CircleNavBar extends StatefulWidget {
   const CircleNavBar({
     Key? key,
     required this.activeIndex,
-    this.onTab,
+    this.onTap,
     this.tabCurve = Curves.linearToEaseOut,
     this.iconCurve = Curves.bounceOut,
     this.tabDurationMillSec = 1000,
@@ -168,9 +168,9 @@ class CircleNavBar extends StatefulWidget {
   /// When the active icon moves up from the bottom
   final int iconDurationMillSec;
 
-  /// If you tap bottom navigation menu, this function will bo called
-  /// You have you udpate widget state
-  final Function(int v)? onTab;
+  /// If you tap bottom navigation menu, this function will be called
+  /// You have to update widget state by setting new [activeIndex]
+  final Function(int index)? onTap;
 
   @override
   State<StatefulWidget> createState() => _CircleNavBarState();
@@ -244,7 +244,7 @@ class _CircleNavBarState extends State<CircleNavBar> with TickerProviderStateMix
                       int currentIndex = widget.inactiveIcons.indexOf(e);
                       return Expanded(
                           child: GestureDetector(
-                        onTap: () => widget.onTab?.call(currentIndex),
+                        onTap: () => widget.onTap?.call(currentIndex),
                         child: Container(
                           width: double.infinity,
                           height: double.infinity,
