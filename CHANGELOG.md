@@ -1,4 +1,4 @@
-## 2.0.1
+## 2.0.1+1
 add configuration params: circleColor, circleShadowColor, circleGradient
 Updates CustomPaint child's sort order
 updates documentation image links to be relative
