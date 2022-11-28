@@ -14,8 +14,8 @@
     </thead>
     <tbody>
         <tr>
-            <td><img src="https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/nopadding-black.png" alt=""></td>
-            <td><img src="https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/padding-gradient2.png" alt=""></td>
+            <td><img src="doc/nopadding-black.png" alt=""></td>
+            <td><img src="doc/padding-gradient2.png" alt=""></td>
         </tr>
     </tbody>
 </table>
@@ -75,6 +75,6 @@ Scaffold(
       ...
 ```
 
-![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/value.png)
+![](doc/value.png)
 
-![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/value-05.png)
+![](doc/value-05.png)

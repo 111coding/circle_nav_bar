@@ -40,7 +40,7 @@ class CircleNavBar extends StatefulWidget {
   /// );
   /// ```
   ///
-  /// ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/value-05.png)
+  /// ![](doc/value-05.png)
   const CircleNavBar({
     Key? key,
     required this.activeIndex,
@@ -69,19 +69,19 @@ class CircleNavBar extends StatefulWidget {
 
   /// Bottom bar height (without bottom padding)
   ///
-  /// ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/value-05.png)
+  /// ![](doc/value-05.png)
   final double height;
 
   /// Circle icon diameter
   ///
-  /// ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/value-05.png)
+  /// ![](doc/value-05.png)
   final double circleWidth;
 
   /// Bottom bar Color
   ///
   /// If you set gradient, color will be ignored
   ///
-  /// ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/value-05.png)
+  /// ![](doc/value-05.png)
   final Color color;
 
   /// Circle color (for active index)
@@ -89,7 +89,7 @@ class CircleNavBar extends StatefulWidget {
   /// If [circleGradient] is given, [circleColor] & [color] will be ignored
   /// If null, [color] will be used
   ///
-  /// ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/value-05.png)
+  /// ![](doc/value-05.png)
   final Color? circleColor;
 
   /// Bottom bar activeIcon List
@@ -110,26 +110,26 @@ class CircleNavBar extends StatefulWidget {
   ///
   /// It is the distance from the Scaffold
   ///
-  /// ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/value-05.png)
+  /// ![](doc/value-05.png)
   final EdgeInsets padding;
 
   /// cornerRadius
   ///
   /// You can specify different values ​​for each corner
   ///
-  /// ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/value-05.png)
+  /// ![](doc/value-05.png)
   final BorderRadius cornerRadius;
 
   /// shadowColor
   ///
-  /// ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/value-05.png)
+  /// ![](doc/value-05.png)
   final Color shadowColor;
 
   /// Circle shadow color (for active index)
   ///
   /// If null, [shadowColor] will be used
   ///
-  /// ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/value-05.png)
+  /// ![](doc/value-05.png)
   final Color? circleShadowColor;
 
   /// elevation
@@ -139,14 +139,14 @@ class CircleNavBar extends StatefulWidget {
   ///
   /// If you set gradient, [color] will be ignored
   ///
-  /// ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/value-05.png)
+  /// ![](doc/value-05.png)
   final Gradient? gradient;
 
   /// Circle gradient (for active index)
   ///
   /// If null, [gradient] might be used
   ///
-  /// ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/value-05.png)
+  /// ![](doc/value-05.png)
   final Gradient? circleGradient;
 
   /// active index
@@ -154,12 +154,12 @@ class CircleNavBar extends StatefulWidget {
 
   /// When the circle icon moves left and right
   ///
-  /// ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/animation.gif)
+  /// ![](doc/animation.gif)
   final Curve tabCurve;
 
   /// When the active icon moves up from the bottom
   ///
-  /// /// ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/animation.gif)
+  /// /// ![](doc/animation.gif)
   final Curve iconCurve;
 
   /// When the circle icon moves left and right
