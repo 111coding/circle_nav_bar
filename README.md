@@ -43,6 +43,7 @@ Scaffold(
           Text("Like"),
         ],
         color: Colors.white,
+        circleColor: Colors.white,
         height: 60,
         circleWidth: 60,
         initIndex: 1,
@@ -58,9 +59,22 @@ Scaffold(
           bottomLeft: Radius.circular(24),
         ),
         shadowColor: Colors.deepPurple,
+        circleShadowColor: Colors.deepPurple,
         elevation: 10,
+        gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: [ Colors.blue, Colors.red ],
+        ),
+        circleGradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: [ Colors.blue, Colors.red ],  
+        ),
       ),
       ...
 ```
 
 ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/value.png)
+
+![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/value-05.png)
