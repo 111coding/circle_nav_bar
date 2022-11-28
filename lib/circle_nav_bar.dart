@@ -194,6 +194,15 @@ class _CircleNavBarState extends State<CircleNavBar> with TickerProviderStateMix
       child: Column(
         children: [
           CustomPaint(
+            painter: _CircleBottomPainter(
+              iconWidth: widget.circleWidth,
+              color: widget.color,
+              xOffsetPercent: tabAc.value,
+              boxRadius: widget.cornerRadius,
+              shadowColor: widget.shadowColor,
+              elevation: widget.elevation,
+              gradient: widget.gradient,
+            ),
             child: SizedBox(
               height: widget.height,
               width: double.infinity,
@@ -229,15 +238,6 @@ class _CircleNavBarState extends State<CircleNavBar> with TickerProviderStateMix
                       )),
                 ],
               ),
-            ),
-            painter: _CircleBottomPainter(
-              iconWidth: widget.circleWidth,
-              color: widget.color,
-              xOffsetPercent: tabAc.value,
-              boxRadius: widget.cornerRadius,
-              shadowColor: widget.shadowColor,
-              elevation: widget.elevation,
-              gradient: widget.gradient,
             ),
           ),
         ],
