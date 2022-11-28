@@ -288,7 +288,7 @@ class _CircleBottomPainter extends CustomPainter {
     final miniRadius = getMiniRadius(iconWidth);
     final x = xOffsetPercent * w;
     final firstX = x - r;
-    final secontX = x + r;
+    final secondX = x + r;
 
     // TopLeft Radius
     path.moveTo(0, 0 + boxRadius.topLeft.y);
@@ -297,12 +297,12 @@ class _CircleBottomPainter extends CustomPainter {
     path.quadraticBezierTo(firstX, 0, firstX, miniRadius);
 
     path.arcToPoint(
-      Offset(secontX, miniRadius),
+      Offset(secondX, miniRadius),
       radius: Radius.circular(r),
       clockwise: false,
     );
 
-    path.quadraticBezierTo(secontX, 0, secontX + miniRadius, 0);
+    path.quadraticBezierTo(secondX, 0, secondX + miniRadius, 0);
 
     // TopRight Radius
     path.lineTo(w - boxRadius.topRight.x, 0);
