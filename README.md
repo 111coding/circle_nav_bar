@@ -82,12 +82,18 @@ Scaffold(
 
 ![](doc/value-05.png)
 
-## Now User Can Add Levels
+![](doc/bottom nev with levels.png)
 
-## Active and inactive levels TextStyle are available.
+![](doc/bottom nev.png)
 
-## Hight set to Default. user can change as They need.
+![](doc/floating bottom navbar.png)
 
-## circleWidth set to Default. user can change as They need.
+### Now User Can Add Levels
 
-## shadowColor and circleShadowColor is transparent as Default. user can change as They need.
+### Active and inactive levels TextStyle are available.
+
+### Hight set to Default. user can change as They need.
+
+### circleWidth set to Default. user can change as They need.
+
+### shadowColor and circleShadowColor is transparent as Default. user can change as They need.
