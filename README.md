@@ -9,15 +9,18 @@
         <tr>
             <th><strong>no padding black</strong></th>
             <th><strong>padding with gradient</strong></th>
+            <th><strong>Level and Icons</strong></th>
+            <th><strong>only Icons </strong></th>
+            <th><strong>padding with Levels and icons</strong></th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td><img src="doc/nopadding-black.png" alt=""></td>
             <td><img src="doc/padding-gradient2.png" alt=""></td>
-            <td><img src="doc/bottom nev with levels.png" alt=""></td>
-            <td><img src="doc/bottom nev.png" alt=""></td>
-            <td><img src="doc/floating bottom navbar.png" alt=""></td>
+            <td><img src="doc/bottom-nev-with-levels.png" alt=""></td>
+            <td><img src="doc/bottom-nev.png" alt=""></td>
+            <td><img src="doc/floating-bottom-navbar.png" alt=""></td>
             
         </tr>
     </tbody>
@@ -82,11 +85,11 @@ Scaffold(
 
 ![](doc/value-05.png)
 
-![](doc/bottom nev with levels.png)
+![](doc/bottom-nev-with-levels.png)
 
-![](doc/bottom nev.png)
+![](doc/bottom-nev.png)
 
-![](doc/floating bottom navbar.png)
+![](doc/floating-bottom-navbar.png)
 
 ### Now User Can Add Levels
 
