@@ -1,4 +1,3 @@
-
 # Circle Nav Bar
 
 ![](doc/animation.gif)
@@ -16,12 +15,16 @@
         <tr>
             <td><img src="doc/nopadding-black.png" alt=""></td>
             <td><img src="doc/padding-gradient2.png" alt=""></td>
+            <td><img src="doc/bottom nev with levels.png" alt=""></td>
+            <td><img src="doc/bottom nev.png" alt=""></td>
+            <td><img src="doc/floating bottom navbar.png" alt=""></td>
+            
         </tr>
     </tbody>
 </table>
 
-
 ## How to use
+
 ```yaml
 dependencies:
   circle_nav_bar: ^latest_version
@@ -69,7 +72,7 @@ Scaffold(
         circleGradient: LinearGradient(
             begin: Alignment.topRight,
             end: Alignment.bottomLeft,
-            colors: [ Colors.blue, Colors.red ],  
+            colors: [ Colors.blue, Colors.red ],
         ),
       ),
       ...
@@ -78,3 +81,13 @@ Scaffold(
 ![](doc/value.png)
 
 ![](doc/value-05.png)
+
+## Now User Can Add Levels
+
+## Active and inactive levels TextStyle are available.
+
+## Hight set to Default. user can change as They need.
+
+## circleWidth set to Default. user can change as They need.
+
+## shadowColor and circleShadowColor is transparent as Default. user can change as They need.
