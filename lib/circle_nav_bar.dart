@@ -42,6 +42,7 @@ class CircleNavBar extends StatefulWidget {
   ///
   /// ![](doc/value-05.png)
   const CircleNavBar({
+    Key? key,
     required this.activeIndex,
     this.onTap,
     this.tabCurve = Curves.linearToEaseOut,
@@ -50,25 +51,21 @@ class CircleNavBar extends StatefulWidget {
     this.iconDurationMillSec = 500,
     required this.activeIcons,
     required this.inactiveIcons,
-    this.circleWidth = 60,
+    required this.height,
+    required this.circleWidth,
     required this.color,
-    this.height = 75,
     this.circleColor,
     this.padding = EdgeInsets.zero,
     this.cornerRadius = BorderRadius.zero,
-    this.shadowColor = Colors.transparent,
-    this.circleShadowColor = Colors.transparent,
+    this.shadowColor = Colors.white,
+    this.circleShadowColor,
     this.elevation = 0,
     this.gradient,
     this.circleGradient,
-    this.levels,
-    this.activeLevelsStyle,
-    this.inactiveLevelsStyle,
   })  : assert(circleWidth <= height, "circleWidth <= height"),
-        assert(activeIcons.length == inactiveIcons.length,
-            "activeIcons.length and inactiveIcons.length must be equal!"),
-        assert(activeIcons.length > activeIndex,
-            "activeIcons.length > activeIndex");
+        assert(activeIcons.length == inactiveIcons.length, "activeIcons.length and inactiveIcons.length must be equal!"),
+        assert(activeIcons.length > activeIndex, "activeIcons.length > activeIndex"),
+        super(key: key);
 
   /// Bottom bar height (without bottom padding)
   ///
@@ -175,21 +172,11 @@ class CircleNavBar extends StatefulWidget {
   /// You have to update widget state by setting new [activeIndex]
   final Function(int index)? onTap;
 
-  /// User can set the levels
-  final List<String>? levels;
-
-  /// User can set the style for the Active levels
-  final TextStyle? activeLevelsStyle;
-
-  /// User can set the style for the Inactive levels
-  final TextStyle? inactiveLevelsStyle;
-
   @override
   State<StatefulWidget> createState() => _CircleNavBarState();
 }
 
-class _CircleNavBarState extends State<CircleNavBar>
-    with TickerProviderStateMixin {
+class _CircleNavBarState extends State<CircleNavBar> with TickerProviderStateMixin {
   late AnimationController tabAc;
 
   late AnimationController activeIconAc;
@@ -197,14 +184,10 @@ class _CircleNavBarState extends State<CircleNavBar>
   @override
   void initState() {
     super.initState();
-    tabAc = AnimationController(
-        vsync: this,
-        duration: Duration(milliseconds: widget.tabDurationMillSec))
+    tabAc = AnimationController(vsync: this, duration: Duration(milliseconds: widget.tabDurationMillSec))
       ..addListener(() => setState(() {}))
       ..value = getPosition(widget.activeIndex);
-    activeIconAc = AnimationController(
-        vsync: this,
-        duration: Duration(milliseconds: widget.iconDurationMillSec))
+    activeIconAc = AnimationController(vsync: this, duration: Duration(milliseconds: widget.iconDurationMillSec))
       ..addListener(() => setState(() {}))
       ..value = 1;
   }
@@ -231,13 +214,13 @@ class _CircleNavBarState extends State<CircleNavBar>
   @override
   Widget build(BuildContext context) {
     double deviceWidth = MediaQuery.of(context).size.width;
+
     return Container(
       margin: widget.padding,
       width: double.infinity,
       height: widget.height,
-      child: Stack(
+      child: Column(
         children: [
-          // Navigation Bar Background
           CustomPaint(
             painter: _CircleBottomPainter(
               iconWidth: widget.circleWidth,
@@ -254,57 +237,37 @@ class _CircleNavBarState extends State<CircleNavBar>
             child: SizedBox(
               height: widget.height,
               width: double.infinity,
-            ),
-          ),
-          // Bottom Navigation Bar with Inactive Icons and Labels
-          Row(
-            children: widget.inactiveIcons.map((e) {
-              int currentIndex = widget.inactiveIcons.indexOf(e);
-              bool isActive = widget.activeIndex == currentIndex;
-              return Expanded(
-                child: GestureDetector(
-                  onTap: () => widget.onTap?.call(currentIndex),
-                  child: Column(
-                    mainAxisAlignment: widget.levels != null &&
-                            currentIndex < widget.levels!.length
-                        ? MainAxisAlignment.end
-                        : MainAxisAlignment.center,
-                    children: [
-                      if (!isActive) e, // Show inactive icon
-                      if (widget.levels != null &&
-                          currentIndex < widget.levels!.length)
-                        Padding(
-                          padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
-                          child: Text(
-                            widget.levels![currentIndex],
-                            style: isActive
-                                ? widget.activeLevelsStyle
-                                : widget.inactiveLevelsStyle,
-                          ),
+              child: Stack(
+                children: [
+                  Row(
+                    children: widget.inactiveIcons.map((e) {
+                      int currentIndex = widget.inactiveIcons.indexOf(e);
+                      return Expanded(
+                          child: GestureDetector(
+                        onTap: () => widget.onTap?.call(currentIndex),
+                        child: Container(
+                          width: double.infinity,
+                          height: double.infinity,
+                          color: Colors.transparent,
+                          alignment: Alignment.center,
+                          child: widget.activeIndex == currentIndex ? null : e,
                         ),
-                    ],
+                      ));
+                    }).toList(),
                   ),
-                ),
-              );
-            }).toList(),
-          ),
-          // Floating Active Icon
-          Positioned(
-            left: tabAc.value * deviceWidth -
-                widget.circleWidth / 2 -
-                tabAc.value * (widget.padding.left + widget.padding.right),
-            child: Transform.scale(
-              scale: activeIconAc.value,
-              child: Container(
-                width: widget.circleWidth,
-                height: widget.circleWidth,
-                transform: Matrix4.translationValues(
-                    0,
-                    -(widget.circleWidth * 0.5) +
-                        _CircleBottomPainter.getMiniRadius(widget.circleWidth) -
-                        widget.circleWidth * 0.5 * (1 - activeIconAc.value),
-                    0),
-                child: widget.activeIcons[widget.activeIndex],
+                  Positioned(
+                      left: tabAc.value * deviceWidth - widget.circleWidth / 2 - tabAc.value * (widget.padding.left + widget.padding.right),
+                      child: Transform.scale(
+                        scale: activeIconAc.value,
+                        child: Container(
+                          width: widget.circleWidth,
+                          height: widget.circleWidth,
+                          transform: Matrix4.translationValues(0, -(widget.circleWidth * 0.5) + _CircleBottomPainter.getMiniRadius(widget.circleWidth) - widget.circleWidth * 0.5 * (1 - activeIconAc.value), 0),
+                          // color: Colors.amber,
+                          child: widget.activeIcons[widget.activeIndex],
+                        ),
+                      )),
+                ],
               ),
             ),
           ),
@@ -401,14 +364,12 @@ class _CircleBottomPainter extends CustomPainter {
     paint.color = color;
 
     if (gradient != null) {
-      Rect shaderRect =
-          Rect.fromCircle(center: Offset(w / 2, h / 2), radius: 180.0);
+      Rect shaderRect = Rect.fromCircle(center: Offset(w / 2, h / 2), radius: 180.0);
       paint.shader = gradient!.createShader(shaderRect);
     }
 
     if (circleGradient != null) {
-      Rect shaderRect =
-          Rect.fromCircle(center: Offset(x, miniRadius), radius: iconWidth / 2);
+      Rect shaderRect = Rect.fromCircle(center: Offset(x, miniRadius), radius: iconWidth / 2);
       circlePaint?.shader = circleGradient!.createShader(shaderRect);
     }
 
@@ -421,21 +382,18 @@ class _CircleBottomPainter extends CustomPainter {
         path,
         Paint()
           ..color = shadowColor
-          ..maskFilter = MaskFilter.blur(
-              BlurStyle.normal, convertRadiusToSigma(elevation)));
+          ..maskFilter = MaskFilter.blur(BlurStyle.normal, convertRadiusToSigma(elevation)));
 
     canvas.drawCircle(
         Offset(x, miniRadius),
         iconWidth / 2,
         Paint()
           ..color = circleShadowColor
-          ..maskFilter = MaskFilter.blur(
-              BlurStyle.normal, convertRadiusToSigma(elevation)));
+          ..maskFilter = MaskFilter.blur(BlurStyle.normal, convertRadiusToSigma(elevation)));
 
     canvas.drawPath(path, paint);
 
-    canvas.drawCircle(
-        Offset(x, miniRadius), iconWidth / 2, circlePaint ?? paint);
+    canvas.drawCircle(Offset(x, miniRadius), iconWidth / 2, circlePaint ?? paint);
   }
 
   @override
