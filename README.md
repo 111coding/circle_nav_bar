@@ -4,11 +4,26 @@
 
 ## Example style:
 
+- `./example`
 <table>
     <thead>
         <tr>
             <th><strong>no padding black</strong></th>
             <th><strong>padding with gradient</strong></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><img src="doc/nopadding-black.png" alt=""></td>
+            <td><img src="doc/padding-gradient2.png" alt=""></td>
+        </tr>
+    </tbody>
+</table>
+
+- `./example_two`
+<table>
+    <thead>
+        <tr>
             <th><strong>Level and Icons</strong></th>
             <th><strong>only Icons </strong></th>
             <th><strong>padding with Levels and icons</strong></th>
@@ -16,12 +31,9 @@
     </thead>
     <tbody>
         <tr>
-            <td><img src="doc/nopadding-black.png" alt=""></td>
-            <td><img src="doc/padding-gradient2.png" alt=""></td>
             <td><img src="doc/bottom-nev-with-levels.png" alt=""></td>
             <td><img src="doc/bottom-nev.png" alt=""></td>
             <td><img src="doc/floating-bottom-navbar.png" alt=""></td>
-            
         </tr>
     </tbody>
 </table>
@@ -91,12 +103,4 @@ Scaffold(
 
 ![](doc/floating-bottom-navbar.png)
 
-### Now User Can Add Levels
 
-### Active and inactive levels TextStyle are available.
-
-### Hight set to Default. user can change as They need.
-
-### circleWidth set to Default. user can change as They need.
-
-### shadowColor and circleShadowColor is transparent as Default. user can change as They need.

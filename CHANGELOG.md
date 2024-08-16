@@ -1,3 +1,11 @@
+## 2.1.0
+Now User Can Add Levels
+Active and inactive levels TextStyle are available.
+Height set to Default. user can change as They need.
+circleWidth set to Default. user can change as They need.
+shadowColor and circleShadowColor is transparent as Default. user can change as They need.
+
+
 ## 2.0.1+1
 add configuration params: circleColor, circleShadowColor, circleGradient
 Updates CustomPaint child's sort order
