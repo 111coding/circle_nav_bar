@@ -1,6 +1,6 @@
 # Circle Nav Bar
 
-![](doc/animation.gif)
+![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/animation.gif)
 
 ## Example style:
 
@@ -14,8 +14,8 @@
     </thead>
     <tbody>
         <tr>
-            <td><img src="doc/nopadding-black.png" alt=""></td>
-            <td><img src="doc/padding-gradient2.png" alt=""></td>
+            <td><img src="https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/nopadding-black.png" alt=""></td>
+            <td><img src="https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/padding-gradient2.png" alt=""></td>
         </tr>
     </tbody>
 </table>
@@ -31,9 +31,9 @@
     </thead>
     <tbody>
         <tr>
-            <td><img src="doc/bottom-nev-with-levels.png" alt=""></td>
-            <td><img src="doc/bottom-nev.png" alt=""></td>
-            <td><img src="doc/floating-bottom-navbar.png" alt=""></td>
+            <td><img src="https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/bottom-nev-with-levels.png" alt=""></td>
+            <td><img src="https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/bottom-nev.png" alt=""></td>
+            <td><img src="https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/floating-bottom-navbar.png" alt=""></td>
         </tr>
     </tbody>
 </table>
@@ -93,14 +93,14 @@ Scaffold(
       ...
 ```
 
-![](doc/value.png)
+![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/value.png)
 
-![](doc/value-05.png)
+![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/value-05.png)
 
-![](doc/bottom-nev-with-levels.png)
+![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/bottom-nev-with-levels.png)
 
-![](doc/bottom-nev.png)
+![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/bottom-nev.png)
 
-![](doc/floating-bottom-navbar.png)
+![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/floating-bottom-navbar.png)
 
 
