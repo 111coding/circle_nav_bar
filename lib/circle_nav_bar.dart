@@ -313,6 +313,14 @@ class _CircleNavBarState extends State<CircleNavBar>
       ),
     );
   }
+  
+  // Disposed of both tabAc and activeIconAc to prevent memory leaks and to avoid the error regarding active tickers.
+  @override
+  void dispose() {
+    tabAc.dispose(); // Dispose of the tab animation controller
+    activeIconAc.dispose(); // Dispose of the active icon animation controller
+    super.dispose(); // Call the superclass's dispose method
+  }
 }
 
 class _CircleBottomPainter extends CustomPainter {
