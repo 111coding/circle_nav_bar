@@ -41,7 +41,6 @@ class CircleNavBar extends StatefulWidget {
   ///
   /// ![](doc/value-05.png)
   const CircleNavBar({
-    super.key,
     required this.activeIndex,
     this.onTap,
     this.tabCurve = Curves.linearToEaseOut,
