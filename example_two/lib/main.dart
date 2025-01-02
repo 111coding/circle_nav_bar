@@ -6,7 +6,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({key});
+  const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({key, required this.title});
+  const MyHomePage({super.key, required this.title});
 
   final String title;
 
@@ -52,6 +52,7 @@ class _MyHomePageState extends State<MyHomePage>
     return Scaffold(
       extendBody: true,
       bottomNavigationBar: CircleNavBar(
+        
         activeIcons: const [
           Icon(Icons.person, color: Colors.white),
           Icon(Icons.favorite, color: Colors.white),
@@ -88,8 +89,8 @@ class _MyHomePageState extends State<MyHomePage>
         color: Colors.purple,
         tabCurve: Curves.decelerate,
         iconCurve: Easing.linear,
-        tabDurationMillSec: 1500,
-        iconDurationMillSec: 300,
+        tabDurationMillSec: 500,
+        iconDurationMillSec: 100,
         activeIndex: tabIndex,
         onTap: (index) {
           tabIndex = index;

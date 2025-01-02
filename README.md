@@ -103,16 +103,12 @@ Scaffold(
 
 ![](https://raw.githubusercontent.com/111coding/circle_nav_bar/master/doc/floating-bottom-navbar.png)
 
-## Contributors
+### Now User Can Add Levels
 
-<table>
-  <tbody>
-    <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/111coding"><img src="https://avatars.githubusercontent.com/u/49793527?v=4?s=100" width="100px;" alt="Jiwon Lee"/><br /><sub><b>Jiwon Lee</b></sub></a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/rupinderjeet"><img src="https://avatars.githubusercontent.com/u/14011726?v=4?s=100" width="100px;" alt="Rupinderjeet Singh Hans"/><br /><sub><b>Rupinderjeet Singh Hans</b></sub></a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/MdAshrafUllah"><img src="https://avatars.githubusercontent.com/u/96839511?v=4?s=100" width="100px;" alt="Md Ashraf Ullah"/><br /><sub><b>Md Ashraf Ullah</b></sub></a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/mark-kkk"><img src="https://avatars.githubusercontent.com/u/107383286?v=4?s=100" width="100px;" alt="mark-kkk"/><br /><sub><b>mark-kkk</b></sub></a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/kzrnm"><img src="https://avatars.githubusercontent.com/u/32071278?v=4s=100" width="100px;" alt="kzrnm"/><br /><sub><b>kzrnm</b></sub></a></td>
-    </tr>
-  </tbody>
-</table>
+### Active and inactive levels TextStyle are available.
+
+### Hight set to Default. user can change as They need.
+
+### circleWidth set to Default. user can change as They need.
+
+### shadowColor and circleShadowColor is transparent as Default. user can change as They need.
