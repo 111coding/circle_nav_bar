@@ -3,7 +3,7 @@ library circle_nav_bar;
 import 'package:flutter/material.dart';
 
 class CircleNavBar extends StatefulWidget {
-  /// Construct a new appbar with internal style.
+  /// Construct a new appBar with internal style.
   ///
   /// ```dart
   /// CircleNavBar(
@@ -23,7 +23,6 @@ class CircleNavBar extends StatefulWidget {
   ///   circleWidth: 60,
   ///   activeIndex: 1,
   ///   onTap: (index) {
-  ///     // TODO
   ///   },
   ///   padding: const EdgeInsets.only(left: 16, right: 16, bottom: 20),
   ///   cornerRadius: const BorderRadius.only(
@@ -42,13 +41,12 @@ class CircleNavBar extends StatefulWidget {
   ///
   /// ![](doc/value-05.png)
   const CircleNavBar({
-    super.key,
     required this.activeIndex,
     this.onTap,
     this.tabCurve = Curves.linearToEaseOut,
     this.iconCurve = Curves.bounceOut,
-    this.tabDurationMillSec = 1000,
-    this.iconDurationMillSec = 500,
+    this.tabDurationMillSec = 500,
+    this.iconDurationMillSec = 300,
     required this.activeIcons,
     required this.inactiveIcons,
     this.circleWidth = 60,
@@ -264,6 +262,7 @@ class _CircleNavBarState extends State<CircleNavBar>
               bool isActive = widget.activeIndex == currentIndex;
               return Expanded(
                 child: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
                   onTap: () => widget.onTap?.call(currentIndex),
                   child: Column(
                     mainAxisAlignment: widget.levels != null &&
@@ -313,7 +312,7 @@ class _CircleNavBarState extends State<CircleNavBar>
       ),
     );
   }
-  
+
   // Disposed of both tabAc and activeIconAc to prevent memory leaks and to avoid the error regarding active tickers.
   @override
   void dispose() {
