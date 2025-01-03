@@ -31,7 +31,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "2.1.0+1"
+    version: "2.1.1"
   clock:
     dependency: transitive
     description:
@@ -211,10 +211,10 @@ packages:
     dependency: transitive
     description:
       name: vm_service
-      sha256: b3d56ff4341b8f182b96aceb2fa20e3dcb336b9f867bc0eafc0de10f1048e957
+      sha256: "5c5f338a667b4c644744b661f309fb8080bb94b18a7e91ef1dbd343bed00ed6d"
       url: "https://pub.dev"
     source: hosted
-    version: "13.0.0"
+    version: "14.2.5"
 sdks:
   dart: ">=3.3.0 <4.0.0"
   flutter: ">=3.18.0-18.0.pre.54"

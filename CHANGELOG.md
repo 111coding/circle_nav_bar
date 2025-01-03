@@ -1,3 +1,11 @@
+## 2.2.0
+Now User Can Add Levels
+Active and inactive levels TextStyle are available
+Hight set to Default. user can change as They need
+circleWidth set to Default. user can change as They need
+shadowColor and circleShadowColor is transparent as Default. user can change as They need
+Thanks for @MdAshrafUllah
+
 ## 2.1.1
 Addition of super.key in Widget Constructors (@kzrnm)
 Proper Disposal of AnimationController (@MdAshrafUllah)
