@@ -1,7 +1,5 @@
 library circle_nav_bar;
 
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 class CircleNavBar extends StatefulWidget {
@@ -65,7 +63,6 @@ class CircleNavBar extends StatefulWidget {
     this.levels,
     this.activeLevelsStyle,
     this.inactiveLevelsStyle,
-    this.maxWidth = 660,
   })  : assert(circleWidth <= height, "circleWidth <= height"),
         assert(activeIcons.length == inactiveIcons.length,
             "activeIcons.length and inactiveIcons.length must be equal!"),
@@ -76,20 +73,6 @@ class CircleNavBar extends StatefulWidget {
   ///
   /// ![](doc/value-05.png)
   final double height;
-
-  /// User can set the max width according to their requirements.
-  /// If not set [double.maxFinite] will be used.
-  /// Change this value if the [activeIcons] are misaligned.
-  ///
-  /// [Use case]: Using with [bottomSheet] instead of [bottomNavigationBar] you
-  /// can make responsive apps that show a full width bar or limit it to
-  /// [maxWidth].
-  ///
-  /// Parent Widget also must bind its width to [maxWidth].
-  ///
-  /// [E.g.] SizedBox(width: min(MediaQuery.of(context).size.width, maxWidth),
-  /// child: CircleNavBar(...)),
-  final double maxWidth;
 
   /// Circle icon diameter
   ///
@@ -246,10 +229,10 @@ class _CircleNavBarState extends State<CircleNavBar>
 
   @override
   Widget build(BuildContext context) {
-    double deviceWidth = min(MediaQuery.of(context).size.width, widget.maxWidth);
+    double deviceWidth = MediaQuery.of(context).size.width;
     return Container(
       margin: widget.padding,
-      width: deviceWidth,
+      width: double.infinity,
       height: widget.height,
       child: Stack(
         children: [
