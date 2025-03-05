@@ -112,8 +112,7 @@ Scaffold(
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/rupinderjeet"><img src="https://avatars.githubusercontent.com/u/14011726?v=4?s=100" width="100px;" alt="Rupinderjeet Singh Hans"/><br /><sub><b>Rupinderjeet Singh Hans</b></sub></a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/MdAshrafUllah"><img src="https://avatars.githubusercontent.com/u/96839511?v=4?s=100" width="100px;" alt="Md Ashraf Ullah"/><br /><sub><b>Md Ashraf Ullah</b></sub></a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/mark-kkk"><img src="https://avatars.githubusercontent.com/u/107383286?v=4?s=100" width="100px;" alt="mark-kkk"/><br /><sub><b>mark-kkk</b></sub></a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/kzrnm"><img src="https://avatars.githubusercontent.com/u/32071278?v=4?s=100" width="100px;" alt="kzrnm"/><br /><sub><b>kzrnm</b></sub></a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/kzrnm"><img src="https://avatars.githubusercontent.com/u/20737196?v=4?s=100" width="100px;" alt="GarvRJ"/><br /><sub><b>Garv Jhangiani</b></sub></a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/kzrnm"><img src="https://avatars.githubusercontent.com/u/32071278?v=4s=100" width="100px;" alt="kzrnm"/><br /><sub><b>kzrnm</b></sub></a></td>
     </tr>
   </tbody>
 </table>
